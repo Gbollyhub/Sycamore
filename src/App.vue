@@ -1,32 +1,314 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <v-app class="myapp">
+    <v-app-bar
+      app
+      color="white"
+      style="padding:0 50px 0 50px;"
+    >
+
+     <img width="150" src="./assets/site-logo.png" alt="">
+      <v-spacer></v-spacer>
+
+      <v-btn
+        target="_blank"
+        text
+        style="text-transform:none;color:black;font-weight:bold;"
+        dark
+      >
+ About Us
+      </v-btn>
+            <v-btn
+        target="_blank"
+        text
+        style="text-transform:none;color:black;font-weight:bold;"
+        dark
+      >
+Contact Us
+      </v-btn>
+            <v-btn
+        target="_blank"
+        text
+        style="text-transform:none;color:black;font-weight:bold;"
+        dark
+      >
+Food Store
+      </v-btn>
+                  <v-btn
+        target="_blank"
+        text
+        style="text-transform:none;color:black;font-weight:bold;"
+        dark
+      >
+Blog
+      </v-btn>
+      <v-btn   depressed style=" text-transform:none;border-radius:20px;margin-left:100px;" dark color="#63C132">Login <v-icon style="margin-left:10px;font-size:13px" dark>mdi-arrow-right</v-icon></v-btn>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+    <div class="footer">
+  <div class="contain">
+  <div class="col-large">
+    <img src="./assets/footer.png" alt="">
+    <p>At Sycamore, our primary objective is to create more opportunities to get you financially empowered. Follow us on social media Platforms, as we make this objective a reality.</p>
+    <br>
+   <v-btn   depressed style=" text-transform:none;border-radius:20px;" dark color="#63C132">Download our brochure <v-icon style="margin-left:10px;font-size:13px" dark>mdi-arrow-right</v-icon></v-btn>
+
+
+
+
   </div>
+  <div class="col">
+    <h1>Company</h1>
+    <ul>
+      <li>About Us</li>
+      <li>Contact Us</li>
+      <li>FAQ</li>
+      <li>Blog</li>
+      <li>Food Store</li>
+    </ul>
+  </div>
+  <div class="col">
+     <h1>Products</h1>
+    <ul>
+      <li>Invest</li>
+      <li>Borrow</li>
+      <li>Advisory</li>
+    </ul>
+  </div>
+  <div class="col">
+   <h1>Legal</h1>
+    <ul>
+      <li>Privacy Policy</li>
+      <li>Terms</li>
+    </ul>
+    </div>
+     <div class="col">
+     <h1>Company</h1>
+    <ul>
+      <li><v-icon style="font-size:20px;margin-right:5px;" color="#63C132">mdi-map-marker</v-icon>15, Modupe Johnson Crescent,Surulere, Lagos.</li>
+      <li><v-icon style="font-size:20px;margin-right:5px;" color="#63C132">mdi-phone-plus</v-icon>+2348097341810</li>
+    </ul>
+  </div>
+     <div class="clearfix"></div>
+</div>
+</div>
+   <v-footer
+    dark
+    padless
+  >
+    <v-card
+      class="flex"
+      flat
+      tile
+    >
+      <v-card-title style="background:#4D4D4D">
+        <strong style="width:800px;font-size:12px" class="subheading">Sycamore is authorized and regulated by the Money Lenders Act Cap 52. The Sycamore brand is a property of Sycamore Integrated Solutions Limited.
+
+© Copyrights, All right reserved by Sycamore</strong>
+
+        <v-spacer></v-spacer>
+
+        <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4"
+          dark
+          icon
+        >
+          <v-icon size="24px">{{ icon }}</v-icon>
+        </v-btn>
+      </v-card-title>
+    </v-card>
+  </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import HelloWorld from './components/HelloWorld';
+
+export default {
+  name: 'App',
+
+  components: {
+    HelloWorld,
+  },
+
+  data: () => ({
+     icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
+  }),
+};
+</script>
+
+<style lang="scss"  scoped>
+.myapp {
+font-family: 'Poppins', sans-serif;
 }
 
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  /* STYLES SPECIFIC TO FOOTER  */
+  .footer {
+    width: 100%;
+    position: relative;
+    height: 400px;
+    background-color: #E8F2E9;
+    padding: 50px 30px;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  }
+  .footer .col {
+    width: 15%;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px 20px 20px 20px;
+
+  }
+  .footer .col-large {
+    width: 40%;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0px 20px 20px 20px;
+  }
+  .footer .col-large h1 {
+    margin-bottom: 10px;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 20px 0px 5px 0px;
+    color: rgb(26, 26, 26);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+  .footer .col-large p {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 20px 0px 5px 0px;
+    color: #002D04;
+    letter-spacing: 0.1em;
+  }
+  .footer .col h1 {
+    margin-bottom: 20px;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 20px 0px 5px 0px;
+    color: #002D04;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.250em;
+  }
+  .footer .col ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer .col ul li {
+    color: #1d1d1d;
+    font-size: 13px;
+    font-family: inherit;
+    padding: 5px 0px 5px 0px;
+    cursor: pointer;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+  }
+  .social ul li {
+    display: inline-block;
+    padding-right: 5px !important;
+  }
+  
+  .footer .col ul li:hover {
+    color: #df3b3b;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+  }
+  .clearfix {
+    clear: both;
+  }
+  .store{
+    color: white;
+  }
+  .social-media{
+    color: white;
+  }
+  .social-media-store{
+    padding: 0 5%;
+  }
+
+  .footer-bottom-div{
+     border-top: 1px solid white;
+     border-bottom: 1px solid white;
+      text-align: center;
+      display: block;
+      color: white;
+      background: #252525;
+      height: 70px;
+      &-text{
+        line-height: 70px;
+      }
+  }
+
+
+
+  @media only screen and (min-width: 1280px) {
+    .contain {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  @media only screen and (max-width: 1139px) {
+    .contain .social {
+      width: 1000px;
+      display: block;
+    }
+    .social h1 {
+      margin: 0px;
+    }
+  }
+  @media only screen and (max-width: 950px) {
+    .footer .col {
+      width: 33%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+      .footer .col {
+        width: 100%;
+      }
+      .footer .col h1 {
+        font-size: 14px;
+      }
+      .footer .col ul li {
+        font-size: 13px;
+      }
+  }
+  @media only screen and (max-width: 340px) {
+    .footer .col {
+      width: 100%;
+    }
+  }
 </style>
